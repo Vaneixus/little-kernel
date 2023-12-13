@@ -3,6 +3,7 @@ https://en.wikipedia.org/wiki/ARM_architecture_family
 https://developer.arm.com/documentation/ddi0406/cb/Application-Level-Architecture/Instruction-Details/Alphabetical-list-of-instructions/POP--ARM-
 https://os.phil-opp.com/freestanding-rust-binary/#building-for-a-bare-metal-target
 https://doc.rust-lang.org/reference/inline-assembly.html#rules-for-inline-assembly
+https://wiki.osdev.org/ARMv7-A_Bare_Bones
 
 RUST:
 https://rust-lang.github.io/rustup/cross-compilation.html
