@@ -19,6 +19,9 @@ Raspberry Pi:
 https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/ok01.html
 https://www.rpi4os.com/
 https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials
+https://www.apriorit.com/dev-blog/696-kernel-embedded-development-for-raspberry-pi#q9
+https://wiki.osdev.org/Raspberry_Pi_Bare_Bones_Rust
+https://github.com/liamrosenfeld/rustos
 
 Devcontainers:
 https://github.com/devcontainers

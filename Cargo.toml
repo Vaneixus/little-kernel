@@ -7,13 +7,8 @@ edition = "2021"
 
 [dependencies]
 
-
 [profile.dev]
 panic = "abort"
 
 [profile.release]
 panic = "abort"
-
-[[bin]]
-name = "kernel"
-path = "src/main.rs"

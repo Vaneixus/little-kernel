@@ -6,7 +6,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 	},
-  "runArgs": ["--privileged", "-i", "-t"],
+  "runArgs": ["--privileged"],
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
 	 "mounts": [
