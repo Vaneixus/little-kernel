@@ -6,7 +6,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 	},
-  "runArgs": ["--privileged"],
+  	"runArgs": ["--privileged"],
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
 	 "mounts": [
@@ -18,7 +18,13 @@
 	],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		“desktop-lite”: {
+			“password”: “vscode”,
+			“webPort”: “6080”,
+			“vncPort”: “5901”
+      		}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
