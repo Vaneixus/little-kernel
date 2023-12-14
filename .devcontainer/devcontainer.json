@@ -19,10 +19,10 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		“desktop-lite”: {
-			“password”: “vscode”,
-			“webPort”: “6080”,
-			“vncPort”: “5901”
+		"desktop-lite": {
+			"password": "vscode",
+			"webPort": "6080",
+			"vncPort": "5901"
       		}
 	},
 
