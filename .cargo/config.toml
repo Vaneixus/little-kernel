@@ -1,10 +1,10 @@
 [build]
-target = "armv7a-none-eabihf"
+target = "aarch64-unknown-none"
 
-[target.armv7a-none-eabihf]
+[target.aarch64-unknown-none]
 runner = "./qemu.sh"
 rustflags = [
-    "-C", "target-cpu=cortex-a7",
+    "-C", "target-cpu=cortex-a72",
     "-C", "link-arg=--script=.cargo/linker.ld",
     "-C", "link-arg=--no-dynamic-linker",
 ]
