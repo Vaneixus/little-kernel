@@ -37,3 +37,4 @@ https://qemu-stsquad.readthedocs.io/en/doc-updates/system/target-arm.html
 VIDEO:
 https://os.phil-opp.com/minimal-rust-kernel/#printing-to-screen
 https://en.wikipedia.org/wiki/VGA_text_mode#Access_methods
+https://github.com/PedroElFrijol/CoffeeOS

@@ -5,6 +5,7 @@ use core::intrinsics::abort;
 use core::intrinsics::volatile_load;
 use core::intrinsics::volatile_store;
 use core::panic::PanicInfo;
+use core::str;
 
 // raspi2 and raspi3 have peripheral base address 0x3F000000,
 // but raspi1 has peripheral base address 0x20000000. Ensure
@@ -45,17 +46,19 @@ fn write(msg: &str) {
     }
 }
 
-static HELLO: &[u8] = b"Hello World!";
-
 #[no_mangle]
 pub extern fn kernel_main() {
     write("Hello Rust Kernel world!");
 
     loop {
         let c = getc();
+
+        //write("\x1b[2J\x1b[");
+        write("\x1b\x5B\x32\x4a\r");
+        write("\x1b[0;0H");
+
         write("You have entered: ");
         writec(c);
-        write("\n")
     }
 }
 
