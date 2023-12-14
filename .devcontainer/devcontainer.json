@@ -19,15 +19,17 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"desktop-lite": {
-			"password": "vscode",
-			"webPort": "6080",
-			"vncPort": "5901"
-      		}
+		"ghcr.io/devcontainers/features/desktop-lite:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  	"forwardPorts": [6080],
+	
+	"portsAttributes": {
+    		"6080": {
+      			"label": "desktop"
+    		}
+	}
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "apt-get update -y; apt-get install qemu -y",
