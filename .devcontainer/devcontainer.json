@@ -17,6 +17,13 @@
 	  }
 	],
 
+	"forwardPorts": [6080],
+	"portsAttributes": {
+	  "6080": {
+		"label": "desktop"
+	  }
+	}
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 
 	// Use 'postCreateCommand' to run commands after the container is created.
