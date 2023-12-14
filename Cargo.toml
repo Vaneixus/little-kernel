@@ -7,5 +7,12 @@ edition = "2021"
 
 [dependencies]
 
-[[bin]]
-path="src/kernel"
+[lib]
+name="littlekernel"
+path="src/kernel.rs"
+
+crate-type=["staticlib"]
+
+[build]
+target="armv7a-none-eabihf"
+target-dir = "build"
