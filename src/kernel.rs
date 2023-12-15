@@ -53,9 +53,8 @@ pub extern fn kernel_main() {
     loop {
         let c = getc();
 
-        //write("\x1b[2J\x1b[");
-        write("\x1b\x5B\x32\x4a\r");
-        write("\x1b[0;0H");
+        write("\x1b\x5B\x32\x4a\r"); // Clear console.
+        write("\x1b[0;0H"); // return to first line.
 
         write("You have entered: ");
         writec(c);

@@ -1,3 +1,10 @@
+all: run
+
+run: build
+	bash desktop-lite-debian.sh
+	/usr/local/share/desktop-init.sh
+	qemu-system-arm -M raspi2b -kernel build/kernel.elf -serial stdio
+
 build: clean
 	mkdir -p build/dep
 	arm-none-eabi-gcc -mfloat-abi=hard -mcpu=cortex-a7 -fpic -ffreestanding -c src/boot.s -o build/dep/boot.o

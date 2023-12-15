@@ -22,6 +22,7 @@ https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials
 https://www.apriorit.com/dev-blog/696-kernel-embedded-development-for-raspberry-pi#q9
 https://wiki.osdev.org/Raspberry_Pi_Bare_Bones_Rust
 https://github.com/liamrosenfeld/rustos
+https://github.com/isometimes/rpi4-osdev/tree/master/part3-helloworld
 
 Devcontainers:
 https://github.com/devcontainers
