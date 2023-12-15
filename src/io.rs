@@ -1,7 +1,5 @@
-use core::intrinsics::abort;
 use core::intrinsics::volatile_load;
 use core::intrinsics::volatile_store;
-use core::panic::PanicInfo;
 use core::str;
 
 const PERIPHERAL_BASE: u32 = 0x3F000000;
@@ -38,4 +36,9 @@ pub fn write(msg: &str) {
     for c in msg.chars() {
         writec(c as u8)
     }
+}
+
+pub fn clearTerminalBuffer() {
+    write("\x1b\x5B\x32\x4a\r"); // Clear console.
+    write("\x1b[0;0H"); // return to first line.
 }

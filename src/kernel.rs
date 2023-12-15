@@ -4,19 +4,18 @@
 mod boot;
 mod panic;
 mod io;
+mod allocator;
+
+extern crate alloc;
+use alloc::format;
 
 #[no_mangle]
 pub extern fn kernel_main() {
     io::write("Hello Rust Kernel world!");
 
     loop {
-        let c = io::getc();
-
-        io::write("\x1b\x5B\x32\x4a\r"); // Clear console.
-        io::write("\x1b[0;0H"); // return to first line.
-
-        io::write("You have entered: ");
-        io::writec(c);
+        io::clearTerminalBuffer();
+        io::write(format!("You have entered: {}", io::getc() as char).as_str());
     }
 }
 
