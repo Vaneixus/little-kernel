@@ -6,7 +6,15 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 	},
-  	"runArgs": ["--privileged"],
+  	"runArgs": [
+		"--privileged",
+		"--net=host",
+	],
+
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"${localEnv:XAUTHORITY}": "${localEnv:XAUTHORITY}"
+	},
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
 	 "mounts": [
@@ -14,6 +22,10 @@
 	 		"source": "devcontainer-cargo-cache-little-kernel",
 	 		"target": "/usr/local/cargo",
 	 		"type": "volume"
+	  }, {
+			"source": "${localEnv:XAUTHORITY}",
+			"target": "${localEnv:XAUTHORITY}",
+			"type": "bind"
 	  }
 	],
 
@@ -33,5 +45,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// "remoteUser": "${localEnv:USER}"
 }
