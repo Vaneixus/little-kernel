@@ -1,8 +1,8 @@
 all: run
 
 run: build
-	bash desktop-lite-debian.sh
-	/usr/local/share/desktop-init.sh
+	# bash desktop-lite-debian.sh
+	# /usr/local/share/desktop-init.sh
 	qemu-system-arm -M raspi2b -kernel build/kernel.elf -serial stdio
 
 build: clean
