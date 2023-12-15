@@ -7,9 +7,10 @@ edition = "2021"
 
 [dependencies]
 
-[bin]
+[lib]
 name="littlekernel"
 path="src/kernel.rs"
+
 
 [build]
 target="armv7a-none-eabihf"
