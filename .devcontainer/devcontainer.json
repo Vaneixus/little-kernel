@@ -11,9 +11,8 @@
 		"--net=host",
 	],
 
-	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}",
-		"${localEnv:XAUTHORITY}": "${localEnv:XAUTHORITY}"
+	"remoteEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}"
 	},
 
 	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
@@ -23,8 +22,8 @@
 	 		"target": "/usr/local/cargo",
 	 		"type": "volume"
 	  }, {
-			"source": "${localEnv:XAUTHORITY}",
-			"target": "${localEnv:XAUTHORITY}",
+			"source": "/tmp/.X11-unix",
+			"target": "/tmp/.X11-unix",
 			"type": "bind"
 	  }
 	],
@@ -34,7 +33,7 @@
 	  "6080": {
 		"label": "desktop"
 	  }
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 
@@ -45,5 +44,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "${localEnv:USER}"
+	"remoteUser": "root"
 }
