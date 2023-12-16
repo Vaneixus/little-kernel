@@ -14,7 +14,7 @@ pub extern fn kernel_main() {
     io::write("Hello Rust Kernel world!");
 
     loop {
-        io::clearTerminalBuffer();
+        io::clear_terminal_buffer();
         io::write(format!("You have entered: {}", io::getc() as char).as_str());
     }
 }

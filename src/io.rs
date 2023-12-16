@@ -38,7 +38,7 @@ pub fn write(msg: &str) {
     }
 }
 
-pub fn clearTerminalBuffer() {
+pub fn clear_terminal_buffer() {
     write("\x1b\x5B\x32\x4a\r"); // Clear console.
     write("\x1b[0;0H"); // return to first line.
 }
