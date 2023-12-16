@@ -39,3 +39,6 @@ VIDEO:
 https://os.phil-opp.com/minimal-rust-kernel/#printing-to-screen
 https://en.wikipedia.org/wiki/VGA_text_mode#Access_methods
 https://github.com/PedroElFrijol/CoffeeOS
+
+UART:
+https://stackoverflow.com/questions/53714570/uarts-registers

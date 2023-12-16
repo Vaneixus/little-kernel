@@ -5,17 +5,19 @@ mod boot;
 mod panic;
 mod io;
 mod allocator;
+mod address;
 
 extern crate alloc;
 use alloc::format;
 
 #[no_mangle]
 pub extern fn kernel_main() {
+    allocator::init_heap();
     io::write("Hello Rust Kernel world!");
 
     loop {
         io::clear_terminal_buffer();
-        io::write(format!("You have entered: {}", io::getc() as char).as_str());
+        io::write(format!("You have entered: {:?}", "a").as_str());
     }
 }
 
