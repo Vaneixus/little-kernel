@@ -2,10 +2,12 @@ use core::intrinsics::volatile_load;
 use core::intrinsics::volatile_store;
 
 use core::str;
-use core::str::from_utf8;
 
-use alloc::vec;
-use alloc::vec::Vec;
+use alloc::borrow::ToOwned;
+use alloc::string::String;
+use alloc::format;
+
+extern crate alloc;
 
 use crate::address;
 
@@ -37,15 +39,15 @@ pub fn getc() -> u8 {
     mmio_read(address::UART_DR) as u8
 }
 
-// pub fn get_text(mut pMsg: &&str) {
-//     let mut next_c: u8 = 0;
-//     let mut str_in_bytes: Vec<u8> = vec![];
-//     while next_c != ENTER_KEY {
-//         next_c = getc();
-//         str_in_bytes.append(&mut vec![next_c]);
-//     };
-//     pMsg = &from_utf8(&str_in_bytes).unwrap();
-// }
+pub fn get_text() -> String {
+    let mut next_c: u8 = getc();
+    let mut msg: String = String::from("");
+    while next_c != ENTER_KEY {
+        msg = format!("{}{:?}", msg, next_c as char);
+        next_c = getc();
+    };
+    return msg.to_owned();
+}
 
 pub fn write(msg: &str) {
     for c in msg.chars() {

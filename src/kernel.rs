@@ -17,7 +17,7 @@ pub extern fn kernel_main() {
 
     loop {
         io::clear_terminal_buffer();
-        io::write(format!("You have entered: {:?}", "a").as_str());
+        io::write(format!("You have entered: {:?}", io::get_text()).as_str());
     }
 }
 
