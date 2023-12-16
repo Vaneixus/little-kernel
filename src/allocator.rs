@@ -1,14 +1,12 @@
-use linked_list_allocator::LockedHeap;
-
+use good_memory_allocator::SpinLockedAllocator;
 #[global_allocator]
-static ALLOCATOR: LockedHeap = LockedHeap::empty();
+static ALLOCATOR: SpinLockedAllocator = SpinLockedAllocator::empty();
 
+pub const HEAP_START: usize = 0x2222_2222;
 pub const HEAP_SIZE: usize = 100 * 1024; // 100 KiB
 
 pub fn init_heap() {
-    let mut heap_start: u8  = 0x_ff;
-
     unsafe {
-        ALLOCATOR.lock().init(&mut heap_start as *mut u8, HEAP_SIZE);
+        ALLOCATOR.init(HEAP_START, HEAP_SIZE);
     }
 }
