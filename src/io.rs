@@ -11,7 +11,7 @@ extern crate alloc;
 
 use crate::address;
 
-const ENTER_KEY: u8 = 0x0A;
+const ENTER_KEY: u8 = 0x0D;
 
 fn mmio_write(reg: u32, val: u32) {
     unsafe { volatile_store(reg as *mut u32, val) }
@@ -44,6 +44,7 @@ pub fn get_text() -> String {
     let mut msg: String = String::from("");
     while next_c != ENTER_KEY {
         msg = format!("{}{:?}", msg, next_c as char);
+        writec(next_c);
         next_c = getc();
     };
     return msg.to_owned();
