@@ -1,5 +1,5 @@
 #![no_std]
-#![feature(core_intrinsics, lang_items)]
+#![feature(core_intrinsics, lang_items, ascii_char)]
 
 mod boot;
 mod panic;
@@ -8,7 +8,6 @@ mod allocator;
 mod address;
 
 extern crate alloc;
-use alloc::format;
 
 #[no_mangle]
 pub extern fn kernel_main() {
@@ -16,8 +15,9 @@ pub extern fn kernel_main() {
     io::write("Hello Rust Kernel world!");
 
     loop {
-        io::write(format!("You have entered: {:?}", io::get_text()).as_str());
         io::clear_terminal_buffer();
+        io::write("You have entered: ");
+        io::write(io::get_text().as_str());
     }
 }
 

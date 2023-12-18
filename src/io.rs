@@ -6,6 +6,7 @@ use core::str;
 use alloc::borrow::ToOwned;
 use alloc::string::String;
 use alloc::format;
+use alloc::vec;
 
 extern crate alloc;
 
@@ -43,8 +44,12 @@ pub fn get_text() -> String {
     let mut next_c: u8 = getc();
     let mut msg: String = String::from("");
     while next_c != ENTER_KEY {
-        msg = format!("{}{:?}", msg, next_c as char);
-        writec(next_c);
+        unsafe {
+            msg = format!("{}{:?}", msg, next_c.as_ascii().unwrap_unchecked());
+        }
+        if next_c != ENTER_KEY {
+            writec(next_c);
+        }
         next_c = getc();
     };
     return msg.to_owned();
