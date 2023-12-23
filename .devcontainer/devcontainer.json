@@ -11,28 +11,8 @@
 		"--net=host",
 	],
 
-	"remoteEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}"
-	},
-
-	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
-	 "mounts": [
-	 	{
-	 		"source": "devcontainer-cargo-cache-little-kernel",
-	 		"target": "/usr/local/cargo",
-	 		"type": "volume"
-	  }, {
-			"source": "/tmp/.X11-unix",
-			"target": "/tmp/.X11-unix",
-			"type": "bind"
-	  }
-	],
-
-	"forwardPorts": [6080],
-	"portsAttributes": {
-	  "6080": {
-		"label": "desktop"
-	  }
+	"features": {
+		"ghcr.io/devcontainers/features/desktop-lite:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
